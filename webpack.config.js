@@ -1,21 +1,25 @@
-var HTMLWebpackPlugin = require('http-webpack-plugin'); 
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 module.exports = {
     entry: './app/index.js',
-    modules: {
+    module: {
         rules: [
-            {test:/\.js$/ exclude:/node_modules/ loader:'babel-loader'},
-            {test:/\.css$/ loader:['style-loader', 'css-loader']}
+            {test:/\.js$/, exclude: /node_modules/, loader:'babel-loader'},
+            {test:/\.css$/, loader:['style-loader', 'css-loader']}
         ]
     },
     output: {
-        path: path.resolve('./', '/dist'),
+        /*This gives us the full path to the director dist
+         * The result is the same as if we did __dirname + '/dist'*/
+        path: path.resolve(__dirname, './dist'),
         filename: 'index_bundle.js'
     },
-    plugins: new HTMLWebpackPlugin({
-        template: path.resolve('./', '/app/index.html'),
+    plugins: [new HTMLWebpackPlugin({
+        /* The same applies here. This gives us the full path to index.html in
+         * app*/
+        template: path.resolve(__dirname, './app/index.html'),
         filename: 'index.html',
-        inject: 'app'
-    })
+        inject: 'body'
+    })]
 };
