@@ -1,0 +1,27 @@
+body {
+    font-family: sans-serif;
+}
+
+ul {
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.languages {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.languages li {
+    /*I want to space out the lis based on the font size*/
+    margin: 1em;
+    /*Change the cursor to a pointer, we want to say these can be selected*/
+    cursor: pointer;
+    font-weight: bold;
+}
+
