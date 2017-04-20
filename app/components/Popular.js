@@ -1,5 +1,43 @@
 import React from 'react'
 
+class LanguageBar extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+    }
+
+    render() {
+        var languages = ['All','JavaScript', 'Python', 'Ruby', 'C++', 'Java'];
+
+        return (
+            <ul className='languages'>
+                {languages.map(function (lang) {
+
+                    var color = null;
+                    if (this.props.selectedLanguage === lang)
+                        color = {color: 'crimson'};
+
+                    /* We set the lang as the unique key because no two popular
+                     * languages will have the same name. This should resolve
+                     * the console warning of not having a key.
+                     *
+                     * Note: onClick needs to be assigned a function. Don't make
+                     * the mistake of doing this: this.updateLanguage(lang).
+                     * This invokes the function and assigns onClick the result.
+                     * Duh!
+                     */
+                    return (
+                        <li key={lang}
+                        onClick={this.props.onSelect.bind(null, lang)}
+                        style={color}>{lang}</li>
+                    )
+                }, this)}
+            </ul>
+        );
+    }
+}
+
 class Popular extends React.Component {
 
     constructor (props) {
@@ -34,33 +72,10 @@ class Popular extends React.Component {
     }
 
     render () {
-        var languages = ['All','JavaScript', 'Python', 'Ruby', 'C++', 'Java'];
-
         return (
-            <ul className='languages'>
-                {languages.map(function (lang) {
-
-                    var color = null;
-                    if (this.state.currentLanguage === lang)
-                        color = {color: 'crimson'};
-
-                    /* We set the lang as the unique key because no two popular
-                     * languages will have the same name. This should resolve
-                     * the console warning of not having a key.
-                     *
-                     * Note: onClick needs to be assigned a function. Don't make
-                     * the mistake of doing this: this.updateLanguage(lang).
-                     * This invokes the function and assigns onClick the result.
-                     * Duh!
-                     */
-                    return (
-                        <li key={lang}
-                        onClick={this.updateLanguage.bind(null, lang)}
-                        style={color}>{lang}</li>
-                    )
-                }, this)}
-            </ul>
-        );
+            <LanguageBar selectedLanguage={this.state.currentLanguage}
+                              onSelect={this.updateLanguage}/>
+        )
     }
 }
 
