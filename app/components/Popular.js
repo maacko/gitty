@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class LanguageBar extends React.Component {
 
@@ -36,6 +37,11 @@ class LanguageBar extends React.Component {
             </ul>
         );
     }
+}
+
+LanguageBar.PropTypes = {
+    selectedLanguages: PropTypes.string.isRequired,
+    onSelect: PropTypes.func.isRequired
 }
 
 class Popular extends React.Component {
