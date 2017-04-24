@@ -81,7 +81,6 @@ RepoGrid.PropTypes = {
     repos: PropTypes.array.isRequired
 }
 
-
 class Popular extends React.Component {
 
     constructor (props) {

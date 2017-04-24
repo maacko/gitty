@@ -10,7 +10,8 @@ const APIHelpers = {
      * add to the callback chain.
     */
     getPopularRepos (language) {
-        var URI ='https://api.github.com/search/repositories?q=stars:>1+language:'+language+'&sort=stars&order=desc&type=repositories';
+        var URI ='https://api.github.com/search/repositories?q=stars:>1+language:'+
+            language+'&sort=stars&order=desc&type=repositories';
         var encodedURI = window.encodeURI(URI);
 
         return axios.get(encodedURI).then(function (response) {
