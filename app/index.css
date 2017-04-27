@@ -2,6 +2,10 @@ body {
     font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 ul {
     padding: 0;
 }
@@ -15,6 +19,7 @@ ul {
     display: flex;
     justify-content: center;
     list-style: none;
+    color: #36454F;
 }
 
 .languages li {
@@ -25,6 +30,7 @@ ul {
     font-weight: bold;
 }
 
+/*Repo grid*/
 .popular-list {
     display: flex;
     flex-wrap: wrap;
@@ -35,6 +41,7 @@ ul {
 .popular-item {
     margin: 20px;
     text-align: center;
+    color: #36454F;
 }
 
 .space-list-item {
@@ -50,4 +57,22 @@ ul {
 .avatar {
     width: 150px;
     border-radius: 50%;
+}
+
+/*nav bar*/
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav li {
+    margin: 20px;
+}
+
+.main-nav a {
+    color: #36454F;
+}
+
+.active {
+    font-weight: bold;
 }
