@@ -76,3 +76,43 @@ ul {
 .active {
     font-weight: bold;
 }
+
+/*Home component*/
+#home-container {
+    margin-top: 10em;
+    text-align: center;
+    color: #36454F;
+}
+
+#home-container h1 {
+    font-size: 4em;
+}
+
+#home-container h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    font-weight: normal;
+}
+
+#home-container .button {
+    display: block;
+    background-color: #282a36;
+    color: white;
+    width: 200px;
+    border-radius: 3px;
+    padding: 10px 0;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#home-container .button:hover:enabled {
+    background: linear-gradient(#1a1a1a, #0a0a0a);
+    color: #fff;
+    text-decoration:none;
+}
+
+#home-container .button:active {
+    /*to get that button feel, move it slightly*/
+    transform: translateY(1px);
+}
