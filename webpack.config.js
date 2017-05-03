@@ -15,6 +15,9 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         filename: 'index_bundle.js'
     },
+    devServer: {
+        historyApiFallback: true
+    },
     plugins: [new HTMLWebpackPlugin({
         /* The same applies here. This gives us the full path to index.html in
          * app*/
