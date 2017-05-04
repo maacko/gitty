@@ -116,3 +116,21 @@ ul {
     /*to get that button feel, move it slightly*/
     transform: translateY(1px);
 }
+
+/*Not Found Component*/
+
+#not-found-container {
+    text-align:center;
+    color: #36454F;
+}
+
+#not-found-container h1 {
+    font-size: 4em;
+}
+
+#not-found-container h2 {
+    font-weight:normal;
+}
+#not-found-container h3 {
+    font-size: 2em;
+}
