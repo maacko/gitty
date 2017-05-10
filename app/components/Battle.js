@@ -43,9 +43,9 @@ class UserInputForm extends React.Component {
     render () {
 
         return (
-            <div className='user-input-form-container' onSubmit={this.handleSubmit}>
+            <div className='user-input-form-container'>
                 <h1>{this.props.label}</h1>
-                <form className='user-input-form'>
+                <form className='user-input-form' onSubmit={this.handleSubmit}>
                     <input
                         type='text'
                         placeholder='username'
