@@ -43,20 +43,31 @@ class UserInputForm extends React.Component {
     render () {
 
         return (
-            <div className='user-input-form-container'>
-                <h1>{this.props.label}</h1>
                 <form className='user-input-form' onSubmit={this.handleSubmit}>
+                    <label className='user-input-header' htmlFor='username'>
+                        <i className='fa fa-github user-icon' aria-hidden='true'>
+                           {this.props.id === 'user1' ?
+                               <p id={this.props.id}>1</p> :
+                               <p id={this.props.id}>2</p>}
+                        </i>
+                    </label>
                     <input
+                        id='username'
                         type='text'
                         placeholder='username'
                         value={this.state.username}
                         onChange={this.changeUsername}
+                        autoComplete='off'
                     />
-                    <button type='submit' label='submit' disabled={!this.state.username}>
+                    <button
+                        className='button'
+                        type='submit'
+                        label='submit'
+                        disabled={!this.state.username}>
+
                         Submit
                     </button>
                 </form>
-            </div>
         );
     }
 }

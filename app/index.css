@@ -10,6 +10,36 @@ ul {
     padding: 0;
 }
 
+.button {
+    display: block;
+    background-color: #282a36;
+    color: white;
+    width: 200px;
+    border-style: none;
+    border-radius: 3px;
+    padding: 10px 0;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.button:hover:enabled {
+    background: linear-gradient(#1a1a1a, #0a0a0a);
+    color: #fff;
+    text-decoration:none;
+}
+
+.button:disabled {
+    background: lightgray;
+    border:none;
+}
+
+.button:active {
+    /*to get that button feel, move it slightly*/
+    transform: translateY(1px);
+}
+
+/*Popular*/
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -30,7 +60,7 @@ ul {
     font-weight: bold;
 }
 
-/*Repo grid*/
+/*Popular-Repo grid*/
 .popular-list {
     display: flex;
     flex-wrap: wrap;
@@ -133,4 +163,58 @@ ul {
 }
 #not-found-container h3 {
     font-size: 2em;
+}
+
+/*Battle Component*/
+
+.battle-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*User Input Component*/
+
+.user-input-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-input-form input {
+    height: 32px;
+    margin: 2em;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.user-input-header {
+    color: #36454F;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.user-icon {
+    position: relative;
+    font-size: 10em;
+    color: #000000;
+}
+
+.user-icon p{
+	position: absolute;
+	margin: 0;
+	top: 27%;
+	right: 38%;
+	font-size: .4em;
+    font-family: Ubuntu;
+}
+
+#user1 {
+    top: 27%;
+    right: 38%;
+}
+
+#user2 {
+    top: 27%;
+    right: 36%;
 }
