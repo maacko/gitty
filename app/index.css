@@ -203,18 +203,10 @@ ul {
 .user-icon p{
 	position: absolute;
 	margin: 0;
-	top: 27%;
-	right: 38%;
-	font-size: .4em;
+    top: 38%;
+    right: 43.5%;
+	font-size: .2em;
+    /*.fa of font awesome overrides the font-weight and font-style*/
     font-family: Ubuntu;
-}
-
-#user1 {
-    top: 27%;
-    right: 38%;
-}
-
-#user2 {
-    top: 27%;
-    right: 36%;
+    font-weight: bold;
 }
