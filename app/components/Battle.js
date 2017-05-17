@@ -90,7 +90,8 @@ class UserPreview extends React.Component {
                 <h1>@{this.props.username}</h1>
                 <button
                     className='reset'
-                    onClick={this.props.handleReset.bind(null,this.props.id)}>
+                    onClick={this.props.handleReset.bind(null,
+                        this.props.id)}>
                     Reset
                 </button>
             </div>
@@ -145,30 +146,45 @@ export default class Battle extends React.Component {
     }
 
     render () {
+
+        var user1 = this.state.user1;
+        var user2 = this.state.user2;
+        var user1Avatar = this.state.user1Avatar;
+        var user2Avatar = this.state.user2Avatar;
+
+
         return (
             <div className='battle-container'>
-                {!this.state.user1 ?
+                {!user1 ?
                     <UserInputForm
                         id='user1'
                         label='User 1'
                         onSubmit={this.handleSubmit}/> :
                     <UserPreview
-                        avatar={this.state.user1Avatar}
-                        username={this.state.user1}
+                        avatar={user1Avatar}
+                        username={user1}
                         handleReset={this.reset}
                         id='user1'
-                    />}
-                {this.state.user1 && this.state.user2 &&
-                    <Link className='button' to='/battle/results'>Battle!</Link>
+                    />
                 }
-                {!this.state.user2 ?
+
+                {user1 && user2 &&
+                    <Link
+                        className='button'
+                        to='/battle/results'
+                    >
+                        Battle!
+                    </Link>
+                }
+
+                {!user2 ?
                     <UserInputForm
                         id='user2'
                         label='User 2'
                         onSubmit={this.handleSubmit}/> :
                     <UserPreview
-                        avatar={this.state.user2Avatar}
-                        username={this.state.user2}
+                        avatar={user2Avatar}
+                        username={user2}
                         handleReset={this.reset}
                         id='user2'
                     />
