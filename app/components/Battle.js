@@ -171,8 +171,11 @@ export default class Battle extends React.Component {
                 {user1 && user2 &&
                     <Link
                         className='button'
-                        to='/battle/results'
-                    >
+                        to={{
+                            pathname: this.props.match.url + '/results/',
+                            search: '?username1=' + user1 + '&username2=' +
+                                    user2
+                        }}>
                         Battle!
                     </Link>
                 }
