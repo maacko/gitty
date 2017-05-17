@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class UserInputForm extends React.Component {
 
@@ -72,6 +73,26 @@ class UserInputForm extends React.Component {
     }
 }
 
+class UserPreview extends React.Component {
+
+    constructor(props) {
+
+        super(props);
+    }
+
+    render () {
+        return (
+            <div className='user-preview-container'>
+                <img
+                    className='avatar'
+                    src={this.props.avatar}
+                    alt={this.props.username + 's user name'}/>
+                <h1>@{this.props.username}</h1>
+            </div>
+        )
+    }
+}
+
 export default class Battle extends React.Component {
 
     constructor (props) {
@@ -99,7 +120,8 @@ export default class Battle extends React.Component {
             //properties
             var newState = {}
             newState[id] = username;
-            newState[id+'Avatar'] = 'don\'t know yet';
+            newState[id+'Avatar'] = 'https://www.github.com/' +
+                username + '.png';
 
             return newState;
         });
@@ -112,13 +134,26 @@ export default class Battle extends React.Component {
                     <UserInputForm
                         id='user1'
                         label='User 1'
-                        onSubmit={this.handleSubmit}/> : <h1>Submitted</h1>}
+                        onSubmit={this.handleSubmit}/> :
+                    <UserPreview
+                        avatar={this.state.user1Avatar}
+                        username={this.state.user1}
+                    />}
+                {this.state.user1 && this.state.user2 &&
+                    <Link className='button' to='/battle/results'>Battle!</Link>
+                }
                 {!this.state.user2 ?
                     <UserInputForm
                         id='user2'
                         label='User 2'
-                        onSubmit={this.handleSubmit}/> : <h1>Submitted</h1>}
+                        onSubmit={this.handleSubmit}/> :
+                    <UserPreview
+                        avatar={this.state.user2Avatar}
+                        username={this.state.user2}
+                    />
+                }
             </div>
+
         );
     }
 }
