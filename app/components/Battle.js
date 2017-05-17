@@ -88,6 +88,11 @@ class UserPreview extends React.Component {
                     src={this.props.avatar}
                     alt={this.props.username + 's user name'}/>
                 <h1>@{this.props.username}</h1>
+                <button
+                    className='reset'
+                    onClick={this.props.handleReset.bind(null,this.props.id)}>
+                    Reset
+                </button>
             </div>
         )
     }
@@ -107,6 +112,7 @@ export default class Battle extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.reset = this.reset.bind(this);
     }
     /*
      * handleSubmit is to be passed as callback for the form to use when the
@@ -118,10 +124,21 @@ export default class Battle extends React.Component {
         this.setState(function () {
             //We need to do this since we can't use variables as object
             //properties
-            var newState = {}
+            var newState = {};
             newState[id] = username;
             newState[id+'Avatar'] = 'https://www.github.com/' +
                 username + '.png';
+
+            return newState;
+        });
+    }
+
+    reset(id) {
+
+        this.setState(function () {
+            var newState = {};
+            newState[id] = '';
+            newState[id+'Avatar'] = null;
 
             return newState;
         });
@@ -138,6 +155,8 @@ export default class Battle extends React.Component {
                     <UserPreview
                         avatar={this.state.user1Avatar}
                         username={this.state.user1}
+                        handleReset={this.reset}
+                        id='user1'
                     />}
                 {this.state.user1 && this.state.user2 &&
                     <Link className='button' to='/battle/results'>Battle!</Link>
@@ -150,6 +169,8 @@ export default class Battle extends React.Component {
                     <UserPreview
                         avatar={this.state.user2Avatar}
                         username={this.state.user2}
+                        handleReset={this.reset}
+                        id='user2'
                     />
                 }
             </div>

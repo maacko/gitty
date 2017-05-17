@@ -211,3 +211,18 @@ ul {
     font-family: Ubuntu;
     font-weight: bold;
 }
+
+
+/*User Preview*/
+.user-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reset {
+    cursor: pointer;
+    background: transparent;
+    color: crimson;
+    border: none;
+}
