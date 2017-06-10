@@ -1,5 +1,5 @@
-*.swp
-*.swo
+*.sw*
 *.log
 node_modules
 clips*.txt
+*.old
