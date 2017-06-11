@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import UserPreview from './UserPreview'
 
 class UserInputForm extends React.Component {
 
@@ -73,32 +74,6 @@ class UserInputForm extends React.Component {
     }
 }
 
-class UserPreview extends React.Component {
-
-    constructor(props) {
-
-        super(props);
-    }
-
-    render () {
-        return (
-            <div className='user-preview-container'>
-                <img
-                    className='avatar'
-                    src={this.props.avatar}
-                    alt={this.props.username + 's user name'}/>
-                <h1>@{this.props.username}</h1>
-                <button
-                    className='reset'
-                    onClick={this.props.handleReset.bind(null,
-                        this.props.id)}>
-                    Reset
-                </button>
-            </div>
-        )
-    }
-}
-
 export default class Battle extends React.Component {
 
     constructor (props) {
@@ -155,24 +130,27 @@ export default class Battle extends React.Component {
 
         return (
             <div className='battle-container'>
+
                 {!user1 ?
-                    <UserInputForm
-                        id='user1'
-                        label='User 1'
-                        onSubmit={this.handleSubmit}/> :
-                    <UserPreview
-                        avatar={user1Avatar}
-                        username={user1}
-                        handleReset={this.reset}
-                        id='user1'
-                    />
+                <UserInputForm
+                    id='user1'
+                    label='User 1'
+                    onSubmit={this.handleSubmit}/> :
+                <UserPreview avatar={user1Avatar} username={user1}>
+                    <button
+                        className='reset'
+                        onClick={this.reset.bind(null, 'user1')}
+                    >
+                        Reset
+                    </button>
+                </UserPreview>
                 }
 
                 {user1 && user2 &&
                     <Link
                         className='button'
                         to={{
-                            pathname: this.props.match.url + '/results/',
+                            pathname: this.props.match.url + '/results',
                             search: '?username1=' + user1 + '&username2=' +
                                     user2
                         }}>
@@ -181,17 +159,20 @@ export default class Battle extends React.Component {
                 }
 
                 {!user2 ?
-                    <UserInputForm
-                        id='user2'
-                        label='User 2'
-                        onSubmit={this.handleSubmit}/> :
-                    <UserPreview
-                        avatar={user2Avatar}
-                        username={user2}
-                        handleReset={this.reset}
-                        id='user2'
-                    />
+                <UserInputForm
+                    id='user2'
+                    label='User 2'
+                    onSubmit={this.handleSubmit}/> :
+                <UserPreview avatar={user2Avatar} username={user2}>
+                    <button
+                        className='reset'
+                        onClick={this.reset.bind(null, 'user2')}
+                    >
+                        Reset
+                    </button>
+                </UserPreview>
                 }
+
             </div>
 
         );

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import QueryString from 'query-string'
 
 import APIHelpers from '../utils/api_helpers'
+import UserPreview from './UserPreview'
 
 /* Note: If you render Player before the Promise has resolved (before there is a
  * response to the get request), then you'll end up using the initial state of
@@ -19,6 +20,7 @@ function Player (props) {
             <h1>{props.title}</h1>
             <h3>{info.score}</h3>
             <p>{JSON.stringify(props.profile)}</p>
+            <UserPreview username={info.profile.login} avatar={info.profile.avatar_url}/>
             <div>
                 <ul>
                     <li>STATS WILL GO HERE</li>
