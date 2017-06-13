@@ -13,17 +13,33 @@ import UserPreview from './UserPreview'
  */
 function Player (props) {
 
+    return (
+        <div>
+            <h1>{props.title}</h1>
+            <h3>{props.score}</h3>
+            <Profile profile={props.profile}/>
+        </div>
+    );
+}
+
+function Profile (props) {
+
     var info = props.profile;
 
     return (
         <div>
-            <h1>{props.title}</h1>
-            <h3>{info.score}</h3>
-            <p>{JSON.stringify(props.profile)}</p>
-            <UserPreview username={info.profile.login} avatar={info.profile.avatar_url}/>
+            <UserPreview
+                username={info.login}
+                avatar={info.avatar_url}
+            />
             <div>
                 <ul>
-                    <li>STATS WILL GO HERE</li>
+                    {info.name && <li>{info.name}</li>}
+                    {info.location && <li>{info.location}</li>}
+                    {info.company && <li>{info.company}</li>}
+                    <li>Followers: {info.followers}</li>
+                    <li>Following: {info.following}</li>
+                    {info.blog && <li><a href={info.blog}>{info.blog}</a></li>}
                 </ul>
             </div>
         </div>
@@ -94,8 +110,12 @@ export default class Results extends React.Component {
         if (loading === false) {
             return (
                 <div>
-                    <Player title="Winner" profile={winner}/>
-                    <Player title="Loser" profile={loser}/>
+                    <Player title="Winner"
+                            profile={winner.profile}
+                            score={winner.score}/>
+                    <Player title="Loser"
+                            profile={loser.profile}
+                            score={loser.score}/>
                 </div>
             )
         }
