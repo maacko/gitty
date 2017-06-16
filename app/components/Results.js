@@ -14,7 +14,7 @@ import UserPreview from './UserPreview'
 function Player (props) {
 
     return (
-        <div>
+        <div className='player-container'>
             <h1>{props.title}</h1>
             <h3>{props.score}</h3>
             <Profile profile={props.profile}/>
@@ -27,12 +27,12 @@ function Profile (props) {
     var info = props.profile;
 
     return (
-        <div>
+        <div className='profile-container'>
             <UserPreview
                 username={info.login}
                 avatar={info.avatar_url}
             />
-            <div>
+            <div className='stats'>
                 <ul>
                     {info.name && <li>{info.name}</li>}
                     {info.location && <li>{info.location}</li>}
@@ -109,7 +109,7 @@ export default class Results extends React.Component {
 
         if (loading === false) {
             return (
-                <div>
+                <div className='results-container'>
                     <Player title="Winner"
                             profile={winner.profile}
                             score={winner.score}/>

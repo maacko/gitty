@@ -212,7 +212,6 @@ ul {
     font-weight: bold;
 }
 
-
 /*User Preview*/
 .user-preview-container {
     display: flex;
@@ -225,4 +224,24 @@ ul {
     background: transparent;
     color: crimson;
     border: none;
+}
+
+/*Results*/
+.results-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*Player*/
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Profile*/
+.stats ul {
+    list-style: none;
+    text-align: center;
 }
