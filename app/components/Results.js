@@ -1,9 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import QueryString from 'query-string'
+import PropTypes from 'prop-types'
 
 import APIHelpers from '../utils/api_helpers'
 import UserPreview from './UserPreview'
+import Loading from './Loading'
 
 /* Note: If you render Player before the Promise has resolved (before there is a
  * response to the get request), then you'll end up using the initial state of
@@ -20,6 +22,12 @@ function Player (props) {
             <Profile profile={props.profile}/>
         </div>
     );
+}
+
+Player.propTypes = {
+    title: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    profile: PropTypes.object.isRequired
 }
 
 function Profile (props) {
@@ -44,6 +52,17 @@ function Profile (props) {
             </div>
         </div>
     );
+}
+
+Player.propTypes = {
+    profile: PropTypes.shape({
+        name: PropTypes.string,
+        location: PropTypes.string,
+        company: PropTypes.string,
+        followers: PropTypes.number.isRequired,
+        following: PropTypes.number.isRequired,
+        blog: PropTypes.string,
+    })
 }
 
 export default class Results extends React.Component {
@@ -120,7 +139,7 @@ export default class Results extends React.Component {
             )
         }
         else {
-                return (<p>Loading</p>);
+            return (<Loading/>);
         }
     }
 }

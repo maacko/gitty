@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import APIHelpers from '../utils/api_helpers'
+import Loading from './Loading'
 
 class LanguageBar extends React.Component {
 
@@ -158,7 +159,7 @@ class Popular extends React.Component {
             <div>
                 <LanguageBar selectedLanguage={this.state.currentLanguage}
                              onSelect={this.updateLanguage}/>
-                 {this.state.repos === null ? (<p>LOADING</p>) :
+                         {this.state.repos === null ? (<Loading/>) :
                          (<RepoGrid repos={this.state.repos}/>)}
             </div>
         )
